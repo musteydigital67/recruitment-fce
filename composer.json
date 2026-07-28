@@ -8,6 +8,7 @@
     "require": {
         "php": "^8.2",
         "doctrine/dbal": "^4.4",
+        "getbrevo/brevo-php": "^5.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "resend/resend-laravel": "^1.4"

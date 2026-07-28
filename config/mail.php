@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 return [
 
@@ -64,6 +64,10 @@ return [
         'resend' => [
             'transport' => 'resend',
         ],
+        'brevo-api' => [
+            'transport' => 'brevo-api',
+        ],
+
 
         'sendmail' => [
             'transport' => 'sendmail',
@@ -123,3 +127,4 @@ return [
     ],
 
 ];
+

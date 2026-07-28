@@ -1,7 +1,9 @@
-<?php
+﻿<?php
 
 namespace App\Providers;
 
+use App\Mail\BrevoApiTransport;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Mail::extend('brevo-api', function () {
+            return new BrevoApiTransport();
+        });
     }
 }
