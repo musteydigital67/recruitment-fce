@@ -25,7 +25,7 @@ class ApplicationReceived extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.application-received',
+            markdown: 'emails.application-received',
         );
     }
 }

@@ -22,6 +22,9 @@ class PositionController extends Controller
 
     public function show(Position $position)
     {
-        return view('positions.show', compact('position'));
+        $hasApplied = auth()->check()
+            && \App\Models\Application::where('user_id', auth()->id())->exists();
+
+        return view('positions.show', compact('position', 'hasApplied'));
     }
 }

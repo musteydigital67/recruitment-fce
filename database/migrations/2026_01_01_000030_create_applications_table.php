@@ -14,7 +14,8 @@ return new class extends Migration
 
             // 1-4
             $table->string('full_name');
-            $table->string('place_of_birth')->nullable();
+            $table->string('state_of_birth')->nullable();
+            $table->string('lga_of_birth')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->string('marital_status')->nullable();
 
@@ -63,3 +64,4 @@ return new class extends Migration
         Schema::dropIfExists('applications');
     }
 };
+

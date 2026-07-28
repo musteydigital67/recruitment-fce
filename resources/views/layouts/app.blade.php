@@ -12,7 +12,19 @@
             <a href="{{ route('positions.index') }}" class="font-semibold text-lg">
                 FCET Potiskum &mdash; Recruitment Portal
             </a>
-            <a href="{{ route('positions.index') }}" class="text-sm text-blue-100 hover:text-white">Vacancies</a>
+            <div class="flex items-center gap-4">
+                <a href="{{ route('positions.index') }}" class="text-sm text-blue-100 hover:text-white">Vacancies</a>
+                @auth
+                    <a href="{{ route('dashboard') }}" class="text-sm text-blue-100 hover:text-white">My Applications</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="text-sm text-blue-100 hover:text-white">Logout</button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="text-sm text-blue-100 hover:text-white">Login</a>
+                    <a href="{{ route('register') }}" class="text-sm bg-white text-blue-900 px-3 py-1.5 rounded-md font-medium hover:bg-blue-50">Register</a>
+                @endauth
+            </div>
         </div>
     </header>
 
@@ -20,6 +32,12 @@
         @if (session('status'))
             <div class="mb-6 rounded-md bg-green-50 border border-green-200 text-green-800 px-4 py-3 text-sm">
                 {{ session('status') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="mb-6 rounded-md bg-red-50 border border-red-200 text-red-800 px-4 py-3 text-sm">
+                {{ session('error') }}
             </div>
         @endif
 

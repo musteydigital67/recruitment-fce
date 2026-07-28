@@ -23,7 +23,9 @@
             <p class="text-sm text-slate-500 mt-4">Applications close: {{ $position->closes_at->format('d M Y') }}</p>
         @endif
 
-        @if ($position->is_open)
+        @if ($hasApplied)
+            <p class="mt-6 text-sm text-slate-600">You have already submitted an application. Only one application is allowed per applicant.</p>
+        @elseif ($position->is_open)
             <a href="{{ route('applications.create', $position) }}"
                class="inline-block mt-6 bg-blue-900 text-white rounded-md px-5 py-2.5 text-sm font-medium hover:bg-blue-800">
                 Apply for this position
