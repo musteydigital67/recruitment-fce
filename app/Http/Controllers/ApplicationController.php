@@ -33,6 +33,7 @@ class ApplicationController extends Controller
         if ($contentLength > $maxPostSize) {
             return redirect()
                 ->route('applications.create', $position)
+                ->withInput()
                 ->with('error', 'Your upload was too large. Please reduce file sizes and try again.');
         }
 
@@ -151,3 +152,4 @@ class ApplicationController extends Controller
         };
     }
 }
+
